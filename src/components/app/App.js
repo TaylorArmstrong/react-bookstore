@@ -10,7 +10,7 @@ class App extends Component {
     this.apiBase = 'http://localhost:8082/api/books'
     this.state = {
       books: [],
-      searchInput: ''
+      searchFieldInput: ''
     }
   }
 
@@ -72,3 +72,5 @@ class App extends Component {
 }
 
 export default App
+
+
