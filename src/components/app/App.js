@@ -41,9 +41,12 @@ class App extends Component {
 
   addToCart = id => {
     this.setState({
-      ...this.state
+      ...this.state,
+      books: this.state.books.map(book => {
+        if (book.id === id) book.inCart = true
+        return book
+      })
     })
-    console.log('this.state', this.state)
   }
 
 
