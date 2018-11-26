@@ -5,8 +5,8 @@ import Cart from '../cart/cart'
 import './App.css'
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.apiBase = 'http://localhost:8082/api/books'
     this.state = {
       books: [],
@@ -63,7 +63,7 @@ class App extends Component {
         <div className='container'>
           <h2>Cart</h2>
           <ul>
-            <Cart books={this.state.books} />
+            <Cart books={this.state.books} total={this.state.books.filter(book => book.inCart).reduce((acc, book) => { return acc + parseInt(book.price) }, 0).toFixed(2)}/>
           </ul>
         </div>
       </main>

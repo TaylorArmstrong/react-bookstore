@@ -12,6 +12,7 @@ export default class Cart extends React.Component {
                 
         return <div>
                     {books}
+                    <p>Total: ${this.props.total}</p>
                 </div>
            
     }
