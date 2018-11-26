@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import SearchBar from '../search-bar/search-bar.js'
+import SearchBar from '../search-bar/search-bar'
+import BookList from '../book-list/book-list'
 import './App.css'
 
 class App extends Component {
@@ -30,10 +31,10 @@ class App extends Component {
  } 
 
 
-  matchingBook = searchInput => {
+  matchingBook = searchFieldInput => {
     this.setState({
       ...this.state,
-      searchInput
+      searchFieldInput
     })
   }
 
@@ -41,7 +42,11 @@ class App extends Component {
   render() {
     return (
       <main>
-        <SearchBar searchFor={this.searchFor}/>
+        <SearchBar matchingBook={this.matchingBook}/>
+        <br />
+        <ul>
+          <BookList books={this.state.books} searchFieldInput={this.state.searchFieldInput} />
+        </ul>
       </main>
     );
   }

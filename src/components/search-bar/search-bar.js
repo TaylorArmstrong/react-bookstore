@@ -12,7 +12,15 @@ export default class SearchBar extends React.Component {
 
     findBook = (e) => {
         e.preventDefault()
+        const searchFieldInput = e.target.value
+        const { matchingBook } = this.props
+       
+        this.setState({
+            ...this.state,
+            input: searchFieldInput
+        })
 
+        matchingBook(searchFieldInput)
         console.log(this.state)
     }
 
