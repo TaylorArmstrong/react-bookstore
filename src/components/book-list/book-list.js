@@ -1,8 +1,8 @@
 import React from 'react'
 import Book from './book.js'
 
-const BookList = ({ books, searchFieldInput, addToCart }) => (
 
+const BookList = ({ books, searchFieldInput, addToCart }) => (
     books.filter(book => (
         book.title.includes(searchFieldInput) || book.author.includes(searchFieldInput)
     )).map((book, idx) => (

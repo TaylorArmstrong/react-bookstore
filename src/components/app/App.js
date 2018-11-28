@@ -5,8 +5,8 @@ import Cart from '../cart/cart'
 import './App.css'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.apiBase = 'http://localhost:8082/api/books'
     this.state = {
       books: [],
@@ -14,13 +14,13 @@ class App extends Component {
     }
   }
 
+  
  async componentDidMount() {
    const response = await fetch(this.apiBase)
    
    if (response.status === 200) {
      const resJSON = await response.json()
      if(!resJSON[0]) return
-     console.log('resJSON', resJSON)
      this.setState({
        ...this.state,
        books: resJSON
@@ -38,6 +38,7 @@ class App extends Component {
       searchFieldInput
     })
   }
+
 
   addToCart = id => {
     this.setState({
